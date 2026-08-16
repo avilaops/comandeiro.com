@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comandeiro — the order pad your restaurant runs on</title>
+<meta name="description" content="Waiters take orders at the table, the kitchen sees them the second they are sent, and the bill adds up on its own. A gastronomy platform for restaurants, bars and grill houses.">
+<meta name="theme-color" content="#100E0C">
+<link rel="canonical" href="https://comandeiro.com/">
+<link rel="alternate" hreflang="en" href="https://comandeiro.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://comandeiro.com.br/">
+<link rel="alternate" hreflang="x-default" href="https://comandeiro.com/">
+
+<meta property="og:title" content="Comandeiro — the order pad your restaurant runs on">
+<meta property="og:description" content="The waiter takes the order. The kitchen sees it instantly. The bill is already right.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://comandeiro.com/">
+<meta property="og:image" content="https://comandeiro.com/og.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/comandeiro.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Comandeiro",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Restaurant point of sale",
+      "operatingSystem": "Web browser",
+      "url": "https://comandeiro.com/",
+      "description": "Table-side ordering, kitchen display, digital menu and tabs for restaurants, bars and grill houses.",
+      "offers": { "@type": "Offer", "priceCurrency": "BRL", "price": "0", "description": "Setup fee plus a flat monthly fee per venue. No commission on sales." },
+      "publisher": { "@id": "https://avilaops.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://avilaops.com/#org",
+      "name": "Avila Ops",
+      "url": "https://avilaops.com",
+      "email": "hello@comandeiro.com"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 3h12v16l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 19V3Z"/>
+        <path d="M9 8h6M9 12h4"/>
+      </svg>
+      Comandeiro
+    </a>
+    <nav>
+      <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#inside">What's inside</a>
+      <a class="hide-sm" href="#pricing">Pricing</a>
+      <a class="btn" href="#contact">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Gastronomy platform</p>
+      <h1>The order pad your restaurant runs on.</h1>
+      <p class="lede" style="margin-top:1.25rem">
+        Your waiter takes the order at the table. The kitchen sees it the second
+        it is sent. The bill adds up on its own. No shouting across the room, no
+        paper slips, no “who ordered the chicken?”
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-lg" href="#contact">Book a demo</a>
+        <a class="btn btn-lg btn-ghost" href="#how">See how it works</a>
+      </div>
+
+      <p class="note">Runs in the browser on the phone your staff already carries.</p>
+    </div>
+
+    <!-- Demo: o produto se explicando em movimento. Sem JS, fica o estado final. -->
+    <div class="demo" data-demo data-moeda="$"
+         data-textos='{"aguardando":"waiting for orders","naChapa":"on the grill","atencao":"taking a while","atrasado":"running late"}'>
+
+      <section class="device" aria-label="Waiter taking an order">
+        <div class="chrome"><span>Waiter · Table 07</span><span class="live">live</span></div>
+        <div class="screen">
+          <div class="item" data-item data-qtd-final="3" data-preco="900">
+            <span class="nome">Beef skewer</span><span class="preco">$9.00</span>
+            <span class="qtd" data-qtd></span>
+          </div>
+          <div class="item" data-item data-qtd-final="2" data-preco="800">
+            <span class="nome">Chicken hearts</span><span class="preco">$8.00</span>
+            <span class="qtd" data-qtd></span>
+          </div>
+          <div class="item" data-item data-qtd-final="1" data-preco="1100">
+            <span class="nome">Grilled cheese</span><span class="preco">$11.00</span>
+            <span class="qtd" data-qtd></span>
+          </div>
+          <div class="item" data-item data-qtd-final="2" data-preco="700">
+            <span class="nome">Cold beer, 600ml</span><span class="preco">$7.00</span>
+            <span class="qtd" data-qtd></span>
+          </div>
+
+          <div class="enviar" data-enviar>
+            <span class="total" data-total>$0.00</span>
+            <span class="acao">Send to kitchen</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="device" aria-label="Kitchen display">
+        <div class="chrome"><span>Kitchen</span><span class="live">live</span></div>
+        <div class="screen">
+          <p class="vazio" data-vazio>no tickets on the line</p>
+
+          <div class="kds" data-kds hidden>
+            <article class="comanda" data-comanda data-estado="normal">
+              <div class="topo"><span>TABLE 07</span><span>#0142</span></div>
+              <div class="linha"><span class="q">3×</span><span>Beef skewer</span></div>
+              <div class="linha"><span class="q">2×</span><span>Chicken hearts</span></div>
+              <div class="obs">no pepper</div>
+              <div class="linha"><span class="q">1×</span><span>Grilled cheese</span></div>
+              <div class="linha"><span class="q">2×</span><span>Cold beer</span></div>
+              <div class="rodape">
+                <span class="estado" data-estado-texto>on the grill</span>
+                <span class="cron" data-cron>00:00</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <p class="legenda">
+        <span>Timer turns amber, then red — the kitchen never guesses.</span>
+        <button type="button" data-repetir>replay ↻</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head revela">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps, and none of them is “type it again”.</h2>
+      <p class="lede" style="max-width:54ch">
+        The order is written once, by whoever is standing at the table — and
+        everything else in the house reads from it.
+      </p>
+    </div>
+
+    <div class="steps revela">
+      <div class="step">
+        <span class="num">STEP 01</span>
+        <h3>The waiter takes the order</h3>
+        <p>Tap the table, tap the items. One tap adds one — the way people actually order another round. Notes like “no pepper” travel with the item.</p>
+      </div>
+      <div class="step">
+        <span class="num">STEP 02</span>
+        <h3>The kitchen gets it instantly</h3>
+        <p>It lands with a sound, a banner and a timer, and the screen stays awake. Nobody has to be looking at it for the order to be noticed.</p>
+      </div>
+      <div class="step">
+        <span class="num">STEP 03</span>
+        <h3>The bill is already right</h3>
+        <p>Every round is on the same tab. Split it, take part in cash and part by card, print it — the table only clears when it is paid.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="section-head revela">
+      <p class="eyebrow">What's inside</p>
+      <h2>Everything a small dining room needs, and nothing it doesn't.</h2>
+    </div>
+
+    <div class="grid revela">
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg> Table-side ordering</h3>
+        <p>Built for a 5.5-inch screen held in one hand, standing up, in a room louder than your office.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h7v7h-7z"/></svg> QR menu, if you want it</h3>
+        <p>Guests scan the code on the table and order themselves. Turn it on, turn it off — the waiter's tab and the guest's tab are the same tab.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg> Kitchen display</h3>
+        <p>A timer per ticket that turns amber and then red, so “how long has this been up?” stops being a guess.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9V4h12v5"/><rect x="4" y="9" width="16" height="7" rx="1.5"/><path d="M8 16h8v4H8z"/></svg> Printing</h3>
+        <p>Kitchen tickets without prices, guest bills with them. Prints from the browser to the printer you already have.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V5M4 15l5-4 4 3 7-7"/></svg> Reports that answer questions</h3>
+        <p>What sold, what sat there, the busiest hour, the average tab. In your timezone, so Saturday night is one night.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l7 4v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7l7-4Z"/></svg> Roles that mean something</h3>
+        <p>The kitchen screen has no prices. The floor has no reports. Nobody sees another venue's data — enforced in the database, not by convention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap split">
+    <div class="revela">
+      <p class="eyebrow">Who it's for</p>
+      <h2>Rooms where the waiter walks.</h2>
+      <p class="lede" style="margin-top:1.25rem">
+        Grill houses, bars, pizzerias, cafés, food trucks — places with tables,
+        rounds, and a kitchen that needs to hear the order right now.
+      </p>
+    </div>
+
+    <ul class="plain revela">
+      <li><strong>You already have the hardware.</strong> Any phone or tablet with a browser. The kitchen screen can be the cheapest tablet on the wall.</li>
+      <li><strong>Your menu changes on Friday.</strong> Sold out is one tap, and the item disappears from the guest's menu instantly.</li>
+      <li><strong>You want the tab to be right.</strong> Prices are calculated on the server from your menu — never from the device in someone's hand.</li>
+      <li><strong>You run more than one room.</strong> Each venue gets its own address, its own colours and its own data. Nothing leaks between them.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head revela">
+      <p class="eyebrow">Pricing</p>
+      <h2>A flat fee per venue. Never a cut of your sales.</h2>
+    </div>
+
+    <div class="price revela">
+      <div class="lines">
+        <div class="line"><b>Setup</b><span>Once. We load your menu, print your table codes, train your staff, and stand in your dining room on the first busy night.</span></div>
+        <div class="line"><b>Monthly</b><span>One price per venue, every feature above included, with support and updates.</span></div>
+        <div class="line"><b>Commission</b><span>None. What the guest pays is yours — we are not in the middle of it.</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem;align-items:flex-start">
+        <p style="color:var(--muted);font-size:.95rem">
+          The number depends on where you are and how many rooms you run. Tell
+          us about the house and we'll quote it in a day.
+        </p>
+        <a class="btn btn-lg" href="#contact">Get a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head revela">
+      <p class="eyebrow">Straight answers</p>
+      <h2>The questions owners actually ask.</h2>
+    </div>
+
+    <div class="faq revela">
+      <details>
+        <summary>Do I need to buy tablets or a POS terminal?</summary>
+        <p>No. It runs in the browser on the phones your staff already carry. If you want a screen on the kitchen wall, the cheapest Android tablet will do — it only has to stay plugged in and on the wi-fi.</p>
+      </details>
+      <details>
+        <summary>What happens if the internet drops?</summary>
+        <p>Orders already sent stay on the kitchen screen. New ones need the connection, the same as your card machine does. We'll say it plainly: this is a connected system, and a dining room without reliable wi-fi is not the right room for it yet.</p>
+      </details>
+      <details>
+        <summary>Do my guests have to download an app?</summary>
+        <p>Never. The QR code opens the menu in the phone's browser. And if you'd rather your waiters take every order, you don't have to use the QR codes at all.</p>
+      </details>
+      <details>
+        <summary>Can I take payments through it?</summary>
+        <p>Today the person at the till records what came in — cash, card, instant transfer — and the tab closes with it. Card-machine integrations are added one at a time, using the provider's official tools only, never a reverse-engineered endpoint.</p>
+      </details>
+      <details>
+        <summary>Who owns the data?</summary>
+        <p>You do. Your menu, your sales, your guests. Each venue is isolated at the database level, and you can ask for an export at any time.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap cta revela">
+    <p class="eyebrow">Talk to us</p>
+    <h2 style="max-width:22ch">Show us your dining room. We'll show you the ticket.</h2>
+    <p class="lede" style="max-width:46ch;text-align:center">
+      Twenty minutes is enough to know whether this fits your house. If it
+      doesn't, we'll say so.
+    </p>
+    <a class="btn btn-lg" href="mailto:hello@comandeiro.com?subject=Comandeiro%20demo">hello@comandeiro.com</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Comandeiro — an <a href="https://avilaops.com">Avila Ops</a> product.</span>
+    <span class="lang"><a href="https://comandeiro.com.br" hreflang="pt-BR">Português (Brasil) →</a></span>
+  </div>
+</footer>
+
+<script src="/assets/comandeiro.js" defer></script>
+</body>
+</html>
