@@ -25,24 +25,51 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Tema claro, e só ele. Um site que muda de cor conforme o aparelho do
+/* --------------------------------------------------------------------------
+   Tokens da marca Comandeiro.
+
+   Tema claro, e só ele. Um site que muda de cor conforme o aparelho do
    visitante é duas versões para manter, e a segunda nunca é olhada.
-   O laranja da marca aparece aqui escurecido: o #FF6A2B nasceu para brilhar
-   sobre fundo escuro e, sobre papel, fica em 2.6:1 — ilegível como texto.
-   Este tom passa 4.5:1 nos três usos: texto no fundo, texto no cartão e
-   branco por cima dele no botão. */
+
+   Duas famílias de token, e a distinção não é capricho:
+
+   --brand-*   a cor da marca, exata como está no manual. Vale para
+               superfície: fundo de botão, selo, barra de estado.
+   --*-text    a mesma cor escurecida até passar 4.5:1. Vale para texto.
+
+   Existem separadas porque a paleta da marca foi escolhida para ser vista,
+   não lida. Medido sobre o creme: terracota 3.3:1, âmbar 2.0:1, verde
+   3.1:1 — todos reprovam como texto, e o âmbar reprova por larga margem.
+   Usar o token de marca num link deixaria o link ilegível para quem
+   enxerga pouco, que num restaurante é o dono de sessenta anos conferindo
+   o relatório no celular. Cada par foi conferido: nenhum abaixo de 4.5:1.
+   -------------------------------------------------------------------------- */
 :root {
-  --ground: #FBF8F3;
+  /* superfícies */
+  --ground: #FFF8F0;
   --panel: #FFFFFF;
-  --panel-2: #F4EFE7;
-  --ink: #17130F;
-  --muted: #6B6055;
-  --rule: #E4DCCF;
-  --ember: #C43F14;
-  --ember-soft: rgba(196, 63, 20, 0.09);
+  --panel-2: #F7F1E8;
+  --ink: #171717;
+  --muted: #63594E;
+  --rule: #E7DFD4;
+
+  /* marca — cor exata, para preencher */
+  --brand-graphite: #171717;
+  --brand-terra: #E85D2A;
+  --brand-amber: #F59E0B;
+  --brand-cream: #FFF8F0;
+  --brand-green: #16A34A;
+  --brand-red: #DC2626;
+
+  /* marca — variantes de texto, conferidas em AA */
+  --ember: #C2410C;
+  --ember-soft: rgba(232, 93, 42, 0.10);
   --ember-ink: #FFFFFF;
-  --ready: #3E7A26;
-  --warn: #9C6C16;
+  --ready: #15803D;
+  --warn: #B45309;
+  --danger: #C81E1E;
+
+  /* cupom */
   --paper: #FFFDF8;
   --paper-ink: #1A1714;
   --paper-rule: #D8CDB9;
@@ -291,6 +318,70 @@ ul.plain strong { color: var(--ink); font-weight: 620; }
 .faq summary::after { content: "+"; color: var(--ember); font-family: var(--mono); }
 .faq details[open] summary::after { content: "−"; }
 .faq p { color: var(--muted); margin-top: .75rem; max-width: 62ch; font-size: .95rem; }
+
+/* ---------- a camada do meio ---------- */
+
+/* Três colunas: por onde entra, o centro, para onde sai. É o desenho que
+   sustenta o posicionamento — o produto é a camada, não o cardápio. */
+.layer { display: grid; gap: 1rem; grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 58rem) { .layer { grid-template-columns: 1fr 1.25fr 1fr; } }
+
+.lane {
+  background: var(--panel); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.4rem 1.35rem;
+}
+.lane-title {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .9rem;
+}
+.lane ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
+.lane li { display: flex; gap: .6rem; align-items: baseline; font-size: .95rem; }
+.lane li::before {
+  content: ""; flex: none; width: .38rem; height: .38rem; border-radius: 999px;
+  background: var(--brand-terra); transform: translateY(-.15rem);
+}
+
+/* O centro é a única superfície grafite da página. Fica escuro de propósito:
+   é o que o olho encontra primeiro, e é onde a marca mora. */
+.core {
+  background: var(--brand-graphite); color: var(--brand-cream);
+  border-radius: var(--radius); padding: 1.75rem 1.6rem;
+  display: flex; flex-direction: column; justify-content: center; gap: .85rem;
+  box-shadow: var(--shadow);
+}
+.core-mark {
+  font-weight: 700; font-size: 1.35rem; letter-spacing: -.03em;
+  color: var(--brand-cream);
+}
+.core p { color: #D8CFC4; font-size: .95rem; }
+
+.note-block {
+  margin-top: 1.5rem; color: var(--muted); font-size: .95rem;
+  max-width: 62ch; border-left: 2px solid var(--brand-terra); padding-left: 1rem;
+}
+
+/* ---------- integrações ---------- */
+
+.conn { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 46rem) { .conn { grid-template-columns: repeat(2, 1fr); } }
+
+.conn-item {
+  background: var(--panel); border: 1px solid var(--rule);
+  border-radius: var(--radius); padding: 1.4rem 1.35rem;
+  display: flex; flex-direction: column; gap: .55rem; align-items: flex-start;
+}
+.conn-item p { color: var(--muted); font-size: .94rem; }
+
+/* O selo diz o estado real da integração. Cor sozinha não basta: quem não
+   distingue verde de âmbar precisa do texto, e ele está escrito por extenso. */
+.tag {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .12em;
+  text-transform: uppercase; padding: .3rem .6rem; border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.tag-live { color: var(--ready); }
+.tag-ready { color: var(--warn); }
+.tag-next { color: var(--muted); }
 
 .cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
 

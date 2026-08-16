@@ -1,0 +1,21 @@
+<!--
+  Comandeiro — símbolo.
+
+  A comanda com a borda serrilhada embaixo, que é como todo recibo térmico
+  termina. Dentro dela, três linhas: as duas primeiras são o pedido escrito,
+  a terceira é o traço que vira confirmação.
+
+  O corte serrilhado faz dois trabalhos: é papel, e é o fluxo do pedido
+  passando de etapa em etapa. Foi por isso que ele ficou no lugar do garfo e
+  da faca — a marca fala de operação, não de comida.
+
+  Desenhado em traço para funcionar de 16px (favicon) a impresso, e em cor
+  única para carimbo e gravação.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none"
+     stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"
+     role="img" aria-label="Comandeiro">
+  <path d="M8 4h16v20.5l-2.7-2-2.65 2-2.65-2-2.65 2-2.65-2L8 26.5V4Z"/>
+  <path d="M12.5 10.5h7M12.5 15h5"/>
+  <path d="M12.5 19.6l2 2 4.5-4.4"/>
+</svg>
