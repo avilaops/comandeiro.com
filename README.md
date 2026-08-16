@@ -85,6 +85,12 @@ Websites/comandeiro.com/          inglês  (canônico do desenho)
 Websites/comandeiro.com.br/       português, mesma estrutura
 ```
 
+**Cada site é um repositório próprio** — `avilaops/comandeiro.com` e
+`avilaops/comandeiro.com.br` —, como o resto da carteira. O produto em si mora
+em `comandeiro/minas.comandeiro.com.br`, com repositório separado: site e
+sistema publicam em ritmos diferentes, e misturar os dois faria o deploy do
+texto de uma seção esperar o teste de um sistema de cozinha.
+
 ### A demo ao vivo
 
 O herói não é captura de tela: é o produto funcionando. O garçom toca nos itens,
@@ -204,11 +210,20 @@ um mercado que ainda não foi definido seria chute com cara de compromisso.
 | Frente | Situação |
 | --- | --- |
 | `comandeiro.com` | no ar, com e-mail roteando |
-| `comandeiro.com.br` | zona **pendente** no registro.br; arquivos prontos |
+| `comandeiro.com.br` | no ar, com e-mail roteando |
 | Produto em inglês | não existe — só o site |
 | Preço público | não publicado, por decisão |
 
-**Falta, quando o `.com.br` propagar:** subir os arquivos, ligar o bloco no
-Caddy, criar `contato@comandeiro.com.br` e virar o domínio primário do Minas —
-que é o que libera os adesivos de mesa para a gráfica, porque o QR impresso
-carrega o domínio dentro dele.
+A zona do `.com.br` **saiu do pendente**: está ativa na Cloudflare, nos mesmos
+nameservers do `.com`. `contato@` e `hello@` dos dois domínios encaminham para
+o Gmail do dono pelo Email Routing.
+
+O `.com.br` tinha o e-mail **desligado de propósito** — `MX .` e `v=spf1 -all`,
+que é como se declara "este domínio não recebe nem envia". Ligar o encaminhamento
+exigiu remover os dois; a Cloudflare recusa habilitar o roteamento enquanto
+houver MX que não seja dela. O `_dmarc` com `p=reject` **ficou**: encaminhamento
+funciona sob ele, e afrouxar para igualar ao `.com` seria piorar o mais seguro
+para parecer com o menos.
+
+**Falta:** virar o domínio primário do Minas — que é o que libera os adesivos de
+mesa para a gráfica, porque o QR impresso carrega o domínio dentro dele.
