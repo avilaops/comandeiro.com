@@ -80,10 +80,40 @@ Websites/comandeiro.com/          inglês  (canônico do desenho)
   assets/comandeiro.js            a demo ao vivo — byte a byte igual nos dois
   fonts/*.woff2                   Archivo e JetBrains Mono, servidas por nós
   og.png                          cartão de link 1200x630, com o texto da língua
-  favicon.svg  robots.txt  sitemap.xml
+  favicon.ico  favicon-96x96.png  apple-touch-icon.png
+  web-app-manifest-{192,512}.png            ícone comum
+  web-app-manifest-maskable-{192,512}.png   ícone adaptável do Android
+  site.webmanifest  robots.txt  sitemap.xml
+  marca/                          arte de origem — NÃO vai para o servidor
 
 Websites/comandeiro.com.br/       português, mesma estrutura
 ```
+
+### `marca/` fica fora do ar
+
+O que está em `marca/` é fonte, não asset: o PNG grande do símbolo e o script
+que gera o ícone adaptável. O `rsync` de publicação exclui a pasta, junto com o
+`README.md`.
+
+Já vazou uma vez — o PNG do símbolo ficou servido em
+`comandeiro.com.br/Símbolo Comandeiro com recibo e fluxo.png`, com espaço e
+acento na URL, enquanto o `.com` não tinha o arquivo. Nome de arquivo de
+trabalho não é endereço público.
+
+### Dois ícones, e a diferença importa
+
+`web-app-manifest-*` é o ícone comum: a arte ocupa a folha inteira, que é o
+certo para favicon e atalho.
+
+`web-app-manifest-maskable-*` é o do Android, que recorta o ícone na forma do
+aparelho — círculo, quadrado arredondado, gota. Só sobrevive o que estiver
+dentro de um círculo com 80% do lado. A arte da marca tem 5,1% de margem
+lateral, então declarada como maskable ela perderia o ponto laranja da direita
+e a barriga do C à esquerda. Por isso o segundo arquivo, com a arte reduzida
+para caber com 18,9% de folga, gerado por `marca/gerar-maskable.py`.
+
+A escala sai da **diagonal** da arte contra o diâmetro do círculo, não da
+largura: retângulo só cabe em círculo se a diagonal couber.
 
 **Cada site é um repositório próprio** — `avilaops/comandeiro.com` e
 `avilaops/comandeiro.com.br` —, como o resto da carteira. O produto em si mora
@@ -151,8 +181,9 @@ pipeline para dois arquivos.
 ## Publicar
 
 ```bash
-# do repositório, para o site em inglês
-tar -C Websites/comandeiro.com -czf /tmp/site.tar.gz .
+# do repositório, para o site em inglês.
+# O que não é do público fica fora do pacote: .git, o README e a pasta marca/.
+tar -C Websites/comandeiro.com     --exclude=.git --exclude=.gitignore --exclude=README.md --exclude=marca     -czf /tmp/site.tar.gz .
 scp -i ~/.ssh/hetzner_avilaops /tmp/site.tar.gz root@178.105.82.48:/tmp/
 
 ssh -i ~/.ssh/hetzner_avilaops root@178.105.82.48 '
@@ -164,7 +195,16 @@ ssh -i ~/.ssh/hetzner_avilaops root@178.105.82.48 '
 ```
 
 O `--delete` importa: sem ele, arquivo apagado no repositório fica vivo no
-servidor para sempre.
+servidor para sempre. Foi o que segurou o PNG do símbolo no ar depois de ele
+sair da raiz do repositório.
+
+Conferir depois de publicar que nada de origem escapou:
+
+```bash
+for u in /README.md /marca/simbolo-comandeiro.png /marca/gerar-maskable.py; do
+  echo "$u -> $(curl -s -o /dev/null -w '%{http_code}' https://comandeiro.com.br$u)"
+done   # os três têm que dar 404
+```
 
 ### Onde as coisas moram
 
