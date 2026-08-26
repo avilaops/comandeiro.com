@@ -222,7 +222,7 @@ HTTPS com 308, e o proxy laranja em modo *Flexible* transforma isso em loop.
 
 ## O que o site promete — e o que não
 
-Vale o `docs/cultura-e-voz.md`, e duas regras dele aparecem inteiras aqui.
+Vale o `docs/regras/cultura-e-voz.md`, e duas regras dele aparecem inteiras aqui.
 
 **Só promete o que existe.** Pedido na mesa, cozinha em tempo real, cardápio por
 QR, impressão, relatório, papéis por função. Nada de "IA" e nada de integração
