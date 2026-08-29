@@ -140,7 +140,12 @@ header .wrap { display: flex; align-items: center; gap: 1.5rem; height: 4rem; }
 nav { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
 nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
 nav a:hover { color: var(--ink); }
-@media (max-width: 52rem) { nav .hide-sm { display: none; } }
+@media (max-width: 52rem) {
+  nav .hide-sm { display: none; }
+  header .wrap { gap: .75rem; padding: 0 1rem; }
+  nav { gap: .5rem; }
+  nav .btn { padding: .5rem .8rem; font-size: .88rem; }
+}
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -382,6 +387,26 @@ ul.plain strong { color: var(--ink); font-weight: 620; }
 .tag-live { color: var(--ready); }
 .tag-ready { color: var(--warn); }
 .tag-next { color: var(--muted); }
+
+/* ---------- entrar ---------- */
+
+/* Quem já é cliente chega pelo celular procurando a porta. O cartão diz com
+   o que se entra (CNPJ ou e-mail do responsável) e leva para o app, que é
+   onde a senha é conferida — o site é estático e nunca vê senha. */
+.entrar { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 58rem) { .entrar { grid-template-columns: 1.1fr .9fr; gap: 4rem; } }
+
+.entrar-card {
+  background: var(--panel); border: 1px solid var(--rule); border-radius: 16px;
+  padding: clamp(1.5rem, 3vw, 2rem); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 1.1rem; align-items: stretch;
+}
+.entrar-label {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted);
+}
+.entrar-card .btn { margin-top: .25rem; }
+.entrar-card .note { font-family: var(--mono); font-size: .76rem; color: var(--muted); }
 
 .cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
 
