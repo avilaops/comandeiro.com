@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Símbolo do Comandeiro</title>
+  <desc id="desc">Letra C preta envolvendo um recibo branco com detalhes laranja.</desc>
+  <path fill="#0A0A0A" d="M132 36h212c72 0 132 59 132 132v62h-92v-58c0-28-23-51-51-51H171c-28 0-51 23-51 51v168c0 28 23 51 51 51h162c28 0 51-23 51-51v-58h92v62c0 73-60 132-132 132H132C59 476 0 417 0 344V168C0 95 59 36 132 36Z"/>
+  <path fill="#FFF8F0" d="M137 153c0-23 19-42 42-42h145c23 0 42 19 42 42v217l-18-15-18 15-18-15-18 15-18-15-18 15-18-15-18 15-18-15-18 15-19-15-18 15-12-10V153Z"/>
+  <path fill="#0A0A0A" d="M184 181h111a17 17 0 1 1 0 34H184a17 17 0 1 1 0-34Zm0 65h86a17 17 0 1 1 0 34h-86a17 17 0 1 1 0-34Z"/>
+  <rect width="109" height="34" x="184" y="311" rx="17" fill="#F35A20"/>
+  <path fill="#F35A20" d="M327 226h102v60H327z"/>
+  <circle cx="432" cy="256" r="54" fill="#F35A20"/>
+</svg>

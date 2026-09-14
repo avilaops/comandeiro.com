@@ -1,4 +1,4 @@
-# Comandeiro — os dois sites
+# Comandeiro: os dois sites
 
 Este README vale para `comandeiro.com` e `comandeiro.com.br`. Os dois são o
 mesmo site em línguas diferentes, com o mesmo CSS e o mesmo JavaScript.
@@ -11,7 +11,7 @@ mesmo site em línguas diferentes, com o mesmo CSS e o mesmo JavaScript.
 cozinha recebe no segundo em que ele envia, e a conta fecha certa.
 
 O nome é a palavra que o setor já usa. **Comandeiro** é o aparelho que o garçom
-carrega para anotar na mesa — todo dono de restaurante e todo garçom no Brasil
+carrega para anotar na mesa, todo dono de restaurante e todo garçom no Brasil
 sabe o que é. Não precisa explicar o que o produto faz: o nome já diz.
 
 Três camadas, e vale não confundir:
@@ -30,7 +30,7 @@ enquanto os adesivos e links antigos existirem.
 ## A estratégia dos dois domínios
 
 `comandeiro.com` em **inglês**, `comandeiro.com.br` em **português**. Não é
-tradução de conveniência — são dois mercados com decisões diferentes:
+tradução de conveniência, são dois mercados com decisões diferentes:
 
 - **`.com.br`** é onde está o cliente de hoje. Espetaria, bar, pizzaria: gente
   que decide sozinha, paga do próprio bolso e não tem departamento de
@@ -46,7 +46,7 @@ outra.
 **O produto em si ainda é só em português.** O painel, o cardápio e a tela da
 cozinha têm o texto direto no código, sem camada de tradução. O site em inglês
 vende; o sistema em inglês é internacionalização de verdade, e entra quando
-existir o primeiro cliente de fora — não antes.
+existir o primeiro cliente de fora, não antes.
 
 ---
 
@@ -66,7 +66,7 @@ Três razões, em ordem de peso:
 
 **O que isso custa:** não há CMS. Mudar texto é editar HTML e publicar. Para uma
 página de produto que muda algumas vezes por mês, é troca boa. No dia em que
-virar blog com vinte posts, deixa de ser — e aí a conversa é outra.
+virar blog com vinte posts, deixa de ser, e aí a conversa é outra.
 
 ---
 
@@ -95,7 +95,7 @@ O que está em `marca/` é fonte, não asset: o PNG grande do símbolo e o scrip
 que gera o ícone adaptável. O `rsync` de publicação exclui a pasta, junto com o
 `README.md`.
 
-Já vazou uma vez — o PNG do símbolo ficou servido em
+Já vazou uma vez, o PNG do símbolo ficou servido em
 `comandeiro.com.br/Símbolo Comandeiro com recibo e fluxo.png`, com espaço e
 acento na URL, enquanto o `.com` não tinha o arquivo. Nome de arquivo de
 trabalho não é endereço público.
@@ -106,7 +106,7 @@ trabalho não é endereço público.
 certo para favicon e atalho.
 
 `web-app-manifest-maskable-*` é o do Android, que recorta o ícone na forma do
-aparelho — círculo, quadrado arredondado, gota. Só sobrevive o que estiver
+aparelho, círculo, quadrado arredondado, gota. Só sobrevive o que estiver
 dentro de um círculo com 80% do lado. A arte da marca tem 5,1% de margem
 lateral, então declarada como maskable ela perderia o ponto laranja da direita
 e a barriga do C à esquerda. Por isso o segundo arquivo, com a arte reduzida
@@ -115,8 +115,8 @@ para caber com 18,9% de folga, gerado por `marca/gerar-maskable.py`.
 A escala sai da **diagonal** da arte contra o diâmetro do círculo, não da
 largura: retângulo só cabe em círculo se a diagonal couber.
 
-**Cada site é um repositório próprio** — `avilaops/comandeiro.com` e
-`avilaops/comandeiro.com.br` —, como o resto da carteira. O produto em si mora
+**Cada site é um repositório próprio**, `avilaops/comandeiro.com` e
+`avilaops/comandeiro.com.br` -, como o resto da carteira. O produto em si mora
 em `comandeiro/minas.comandeiro.com.br`, com repositório separado: site e
 sistema publicam em ritmos diferentes, e misturar os dois faria o deploy do
 texto de uma seção esperar o teste de um sistema de cozinha.
@@ -124,7 +124,7 @@ texto de uma seção esperar o teste de um sistema de cozinha.
 ### A demo ao vivo
 
 O herói não é captura de tela: é o produto funcionando. O garçom toca nos itens,
-o total sobe, a comanda cai na cozinha e o cronômetro corre — passando de normal
+o total sobe, a comanda cai na cozinha e o cronômetro corre, passando de normal
 para atenção e para atrasado nos mesmos limites que o sistema usa de verdade.
 
 São 6 KB de JavaScript, sem dependência. Captura de tela envelhece a cada
@@ -162,7 +162,7 @@ divergiram:
 }
 ```
 
-Diferem de propósito: `index.html`, `404.html`, `sitemap.xml` e `og.png` — o
+Diferem de propósito: `index.html`, `404.html`, `sitemap.xml` e `og.png` - o
 cartão de link tem o texto da língua desenhado dentro dele.
 
 **O texto é escrito, não traduzido.** "Sold out is one tap" virou "marcar
@@ -173,7 +173,7 @@ o leitor brasileiro reconhece.
 **O limite, dito antes de doer:** hoje as duas páginas são dois arquivos
 mantidos à mão. Mudança de estrutura precisa ser feita nos dois, e quem esquecer
 deixa as versões diferentes sem ninguém perceber. Funciona com uma página por
-língua. Na terceira página, vira gerador — não antes, para não construir
+língua. Na terceira página, vira gerador, não antes, para não construir
 pipeline para dois arquivos.
 
 ---
@@ -220,7 +220,7 @@ HTTPS com 308, e o proxy laranja em modo *Flexible* transforma isso em loop.
 
 ---
 
-## O que o site promete — e o que não
+## O que o site promete: e o que não
 
 Vale o `docs/regras/cultura-e-voz.md`, e duas regras dele aparecem inteiras aqui.
 
@@ -238,8 +238,8 @@ que ainda não foi escrita.
 
 É melhor perder o lead na página do que na primeira sexta-feira.
 
-**Preço sem número.** Está a estrutura — implantação uma vez, mensalidade por
-casa, **zero comissão sobre a venda** — e um pedido de orçamento. O número
+**Preço sem número.** Está a estrutura, implantação uma vez, mensalidade por
+casa, **zero comissão sobre a venda**, e um pedido de orçamento. O número
 depende de praça e de quantas casas o cliente tem; inventar valor em dólar para
 um mercado que ainda não foi definido seria chute com cara de compromisso.
 
@@ -251,19 +251,19 @@ um mercado que ainda não foi definido seria chute com cara de compromisso.
 | --- | --- |
 | `comandeiro.com` | no ar, com e-mail roteando |
 | `comandeiro.com.br` | no ar, com e-mail roteando |
-| Produto em inglês | não existe — só o site |
+| Produto em inglês | não existe, só o site |
 | Preço público | não publicado, por decisão |
 
 A zona do `.com.br` **saiu do pendente**: está ativa na Cloudflare, nos mesmos
 nameservers do `.com`. `contato@` e `hello@` dos dois domínios encaminham para
 o Gmail do dono pelo Email Routing.
 
-O `.com.br` tinha o e-mail **desligado de propósito** — `MX .` e `v=spf1 -all`,
+O `.com.br` tinha o e-mail **desligado de propósito**, `MX .` e `v=spf1 -all`,
 que é como se declara "este domínio não recebe nem envia". Ligar o encaminhamento
 exigiu remover os dois; a Cloudflare recusa habilitar o roteamento enquanto
 houver MX que não seja dela. O `_dmarc` com `p=reject` **ficou**: encaminhamento
 funciona sob ele, e afrouxar para igualar ao `.com` seria piorar o mais seguro
 para parecer com o menos.
 
-**Falta:** virar o domínio primário do Minas — que é o que libera os adesivos de
+**Falta:** virar o domínio primário do Minas, que é o que libera os adesivos de
 mesa para a gráfica, porque o QR impresso carrega o domínio dentro dele.
