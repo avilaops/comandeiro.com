@@ -52,17 +52,16 @@ existir o primeiro cliente de fora, não antes.
 
 ## Por que é estático
 
-Sem container, sem Node, sem build. O Caddy serve arquivo do disco.
+Sem container, sem Node, sem build. O GitHub Pages serve os arquivos como estão.
 
 Três razões, em ordem de peso:
 
-1. **O servidor é compartilhado.** São 2 vCPU e 3,8 GB para nove sites, o ERP,
-   o Odoo e a plataforma do Minas. O site do produto não pode disputar CPU com
-   a cozinha de um cliente num sábado.
+1. **Fora do servidor compartilhado.** O site do produto não disputa CPU com o
+   ERP e os sistemas de cliente no Hetzner.
 2. **A primeira visita inteira dá ~99 KB** e nenhuma requisição a domínio de
    terceiro: HTML 15 KB, CSS 13 KB, JS 6 KB, fontes 65 KB.
-3. **Deploy é `rsync`.** Segundos, sem imagem para construir, sem container
-   para reiniciar.
+3. **Deploy é copiar arquivo.** Segundos, sem imagem para construir, sem
+   container para reiniciar.
 
 **O que isso custa:** não há CMS. Mudar texto é editar HTML e publicar. Para uma
 página de produto que muda algumas vezes por mês, é troca boa. No dia em que
@@ -180,23 +179,11 @@ pipeline para dois arquivos.
 
 ## Publicar
 
-```bash
-# do repositório, para o site em inglês.
-# O que não é do público fica fora do pacote: .git, o README e a pasta marca/.
-tar -C Websites/comandeiro.com     --exclude=.git --exclude=.gitignore --exclude=README.md --exclude=marca     -czf /tmp/site.tar.gz .
-scp -i ~/.ssh/hetzner_avilaops /tmp/site.tar.gz root@178.105.82.48:/tmp/
+Publicado no **GitHub Pages** pelo workflow `.github/workflows/pages.yml`: todo push na `main` gera o site e publica; pull requests só rodam o build, para validar.
 
-ssh -i ~/.ssh/hetzner_avilaops root@178.105.82.48 '
-  rm -rf /tmp/novo && mkdir -p /tmp/novo
-  tar -xzf /tmp/site.tar.gz -C /tmp/novo
-  rsync -a --delete /tmp/novo/ /var/www/comandeiro.com/
-  chown -R www-data:www-data /var/www/comandeiro.com
-'
-```
-
-O `--delete` importa: sem ele, arquivo apagado no repositório fica vivo no
-servidor para sempre. Foi o que segurou o PNG do símbolo no ar depois de ele
-sair da raiz do repositório.
+O que não é do público (README, `marca/`) fica fora do pacote: o workflow
+copia só os arquivos do site para `_site/`. Arquivo apagado no repositório
+sai do ar no deploy seguinte.
 
 Conferir depois de publicar que nada de origem escapou:
 
