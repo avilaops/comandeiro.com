@@ -18,6 +18,8 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: 85b914dcdebf6fa2fce7b819bc542294
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 24
@@ -29,14 +31,16 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           repository: avilaops/motor-web
-          ref: d5067bbbe3522f459367af3b58b4298324801f82
+          ref: a1bba366c848bf2df3634cba6de2649a8626435c
           path: .publicacao-texto
           persist-credentials: false
       - name: Install text publisher
         working-directory: .publicacao-texto
         run: npm ci --ignore-scripts --omit=dev
+      - name: Generate canonical metadata and URL and image sitemaps
+        run: node .publicacao-texto/bin/publicar-seo.mjs --diretorio pages-dist --configuracao seo.config.json --repositorio .
       - name: Generate public MDX and Markdown
-        run: node .publicacao-texto/bin/publicar-texto.mjs --diretorio pages-dist --origem https://comandeiro.com
+        run: node .publicacao-texto/bin/publicar-texto.mjs --diretorio pages-dist --origem https://comandeiro.com --indexar-texto
       - name: Generate public discovery and WebMCP
         run: node .publicacao-texto/bin/publicar-descoberta.mjs --diretorio pages-dist --origem https://comandeiro.com
       - name: Publish Pages
