@@ -1,8 +1,8 @@
 {
   "origem": "https://comandeiro.com",
   "nome": "Comandeiro",
-  "idioma": "en",
-  "imagem": "/og.png",
+  "idioma": "en-US",
+  "imagem": "/og-v2.png",
   "icone": "/favicon-96x96.png",
   "removerTagsLegadas": true,
   "fontesGlobais": [
